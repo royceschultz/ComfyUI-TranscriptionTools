@@ -1,8 +1,8 @@
-# ComfyUI Transcription Tools
-
-**Under Development**
+# ComfyUI Transcription Tools (Under Development)
 
 This package provides custom nodes for ComfyUI to perform transcription tasks on audio and video file inputs.
+
+<img src="assets/workflow_example.jpg" alt="isolated" width="800"/>
 
 ## Transcription Models
 
