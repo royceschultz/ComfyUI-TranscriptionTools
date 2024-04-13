@@ -6,7 +6,7 @@ import folder_paths
 from .util import get_ffmpeg_path
 
 
-video_extensions = ['webm', 'mp4', 'mkv', 'gif']
+video_extensions = ['webm', 'mp4', 'mkv']
 
 def get_audio(video, start_time=0, duration=0):
     ffmpeg_path = get_ffmpeg_path()
