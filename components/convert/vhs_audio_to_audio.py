@@ -1,4 +1,4 @@
-class VHSAudioToWavBytes:
+class VHSAudioToWavBytesNode:
     def __init__(self):
         pass
 
@@ -10,12 +10,12 @@ class VHSAudioToWavBytes:
             },
         }
 
-    RETURN_TYPES = ("wav_bytes", )
+    RETURN_TYPES = ("WAV_BYTES", )
     RETURN_NAMES = ("wav_bytes", )
 
-    FUNCTION = "test"
+    FUNCTION = "convert"
 
-    CATEGORY = "Example"
+    CATEGORY = "audio"
 
-    def test(self, vhs_audio):
+    def convert(self, vhs_audio):
         return (vhs_audio(), )

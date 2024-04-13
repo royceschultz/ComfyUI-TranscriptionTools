@@ -854,7 +854,7 @@ function searchBox(event, [x, y], node) {
 // });
 
 app.registerExtension({
-    name: "MyCustomNodes.Core",
+    name: "TranscriptionTools.core",
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
         if (nodeData?.name?.startsWith("VHS_")) {
             useKVState(nodeType);
@@ -929,7 +929,7 @@ app.registerExtension({
                 //Display previews after reload/ loading workflow
                 requestAnimationFrame(() => { this.updateParameters({}, true); });
             });
-        } else if (nodeData?.name == "ExampleLoadVideoAudio") {
+        } else if (nodeData?.name == "TT-LoadVideoAudio") {
             console.log('hi from javascript')
             useKVState(nodeType);
             chainCallback(nodeType.prototype, "onNodeCreated", function () {

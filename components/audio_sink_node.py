@@ -1,6 +1,4 @@
 import os
-import re
-import time
 # ComfyUI imports
 import folder_paths
 # Local imports
@@ -14,7 +12,7 @@ class AudioSinkNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "wav_bytes": ("wav_bytes",),
+                "wav_bytes": ("WAV_BYTES",),
                 "filename": ("STRING", {"default": "AudioSink"}),
                 "save_format": (['wav'],),
                 "save_output": ("BOOLEAN", {"default": True}),
@@ -25,13 +23,13 @@ class AudioSinkNode:
     RETURN_TYPES = tuple()
     #RETURN_NAMES = ("image_output_name",)
 
-    FUNCTION = "test"
-
     OUTPUT_NODE = True
 
-    CATEGORY = "Example"
+    CATEGORY = "audio"
 
-    def test(self, wav_bytes, filename, save_format, save_output, overwrite_existing):
+    FUNCTION = "save_audio"
+
+    def save_audio(self, wav_bytes, filename, save_format, save_output, overwrite_existing):
         if not save_output:
             return (1, )
 

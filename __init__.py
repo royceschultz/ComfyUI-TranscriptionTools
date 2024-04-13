@@ -3,7 +3,7 @@ from .components.load_whisper_model import LoadWhisperModelNode
 from .components.whisper_transcription import WhisperTranscriptionNode
 from .components.load_video_audio import LoadVideoAudioNode
 
-from .components.convert.vhs_audio_to_audio import VHSAudioToWavBytes
+from .components.convert.vhs_audio_to_audio import VHSAudioToWavBytesNode
 
 # Set the web directory, any .js file in that directory will be loaded by the frontend as a frontend extension
 # WEB_DIRECTORY = "./somejs"
@@ -11,17 +11,20 @@ from .components.convert.vhs_audio_to_audio import VHSAudioToWavBytes
 # A dictionary that contains all nodes you want to export with their names
 # NOTE: names should be globally unique
 NODE_CLASS_MAPPINGS = {
-    "ExampleAudioSink": AudioSinkNode,
-    "ExampleLoadWhisperModel": LoadWhisperModelNode,
-    "ExampleWhisperTranscription": WhisperTranscriptionNode,
-    "ConvertVhsAudioToAudio": VHSAudioToWavBytes,
-    "ExampleLoadVideoAudio": LoadVideoAudioNode,
+    "TT-AudioSink": AudioSinkNode,
+    "TT-LoadWhisperModel": LoadWhisperModelNode,
+    "TT-WhisperTranscription": WhisperTranscriptionNode,
+    "TT-ConvertVhsAudioToAudio": VHSAudioToWavBytesNode,
+    "TT-LoadVideoAudio": LoadVideoAudioNode,
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Example": "Example Node"
-    # "ExampleAudioSink": "Audio Sink Node"
+    "TT-AudioSink": "Audio Sink",
+    "TT-LoadWhisperModel": "Load Whisper Transcription Model",
+    "TT-WhisperTranscription": "Whisper Transcribe",
+    "TT-ConvertVhsAudioToAudio": "Convert VHS Audio to WAV bytes",
+    "TT-LoadVideoAudio": "Load Audio from Video",
 }
 
 WEB_DIRECTORY = "./web"

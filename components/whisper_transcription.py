@@ -11,8 +11,8 @@ class WhisperTranscriptionNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "pipeline": ('transcription_pipeline',),
-                "wav_bytes": ('wav_bytes',),
+                "pipeline": ('TRANSCRIPTION_PIPELINE',),
+                "wav_bytes": ('WAV_BYTES',),
                 "format_newlines_on_punctuation": ('BOOLEAN', {'default': True}),
                 "save_transcription": ('BOOLEAN', {'default': False}),
                 "save_chunks": ('BOOLEAN', {'default': False}),
@@ -26,7 +26,7 @@ class WhisperTranscriptionNode:
 
     FUNCTION = "test"
 
-    CATEGORY = "Example"
+    CATEGORY = "transcription"
 
     OUTPUT_NODE = True
 

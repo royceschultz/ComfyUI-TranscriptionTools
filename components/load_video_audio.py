@@ -2,15 +2,12 @@ import os
 import subprocess
 
 import folder_paths
-import logging
-# from .utils import BIGMAX, DIMMAX, calculate_file_hash, get_sorted_dir_files_from_directory, get_audio, lazy_eval, hash_path, validate_path
+
 from .util import get_ffmpeg_path
 
 
 video_extensions = ['webm', 'mp4', 'mkv', 'gif']
 
-# get_audio(video, skip_first_frames * target_frame_time,
-#                                frame_load_cap*target_frame_time*select_every_nth)
 def get_audio(video, start_time=0, duration=0):
     ffmpeg_path = get_ffmpeg_path()
     args = [ffmpeg_path, "-v", "error", "-i", video]
@@ -39,25 +36,19 @@ class LoadVideoAudioNode:
             "required": {
                 "video": (sorted(files),),
             },
-            # "hidden": {
-            #     "unique_id": "UNIQUE_ID"
-            # },
         }
 
-    CATEGORY = "Example"
+    CATEGORY = "audio"
 
-    RETURN_TYPES = ("wav_bytes", )
+    RETURN_TYPES = ("WAV_BYTES", )
     RETURN_NAMES = ("wav_bytes", )
 
-    FUNCTION = "test"
+    FUNCTION = "load_video_audio"
 
-    def test(self, video):
+    def load_video_audio(self, video):
         input_directory = folder_paths.get_input_directory()
         filepath = os.path.join(input_directory, video)
         audio = get_audio(filepath)
-        print('\n\n\n')
-        print(type(audio))
-        print('\n\n\n')
         return (audio, )
 
     # @classmethod
