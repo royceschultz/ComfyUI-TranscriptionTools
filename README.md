@@ -10,6 +10,12 @@ This package provides custom nodes for ComfyUI to perform transcription tasks on
 
 More models to be added in the future.
 
+## Info
+
+Video input is selected from the `input/` folder.
+
+When the save options are selected transcriptions are stored in the `output/transcriptions/` directory. Transcription text is the full text of the transcription. Chunks output is a csv containing timestamp info for each chunk of the transcription.
+
 ## Special Thanks
 
 The team supporting [ComfyUI-VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite) which provided insrumental examples in the development of this tool.
