@@ -13,7 +13,9 @@ Load the audio component of a video file from the `input/` folder.
 ## Model Nodes
 
 ### Load Whisper Model
-Create a new whisper pipeline to transcribe audio. Supports selecting the input language. Currently options are english (en) and auto. Auto language detection may encounter errors.
+Create a new whisper pipeline to transcribe audio. Supports selecting the input language.
+
+Note: Automatic language detection can occaisionally produce errors. If you're having trouble, try specifying the language manually.
 
 
 ## Processing Nodes

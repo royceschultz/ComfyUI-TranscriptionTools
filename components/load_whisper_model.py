@@ -1,6 +1,22 @@
 import torch
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 
+model_ids = [
+    'openai/whisper-large-v3',
+    'openai/whisper-large-v2',
+    'openai/whisper-large',
+    'openai/whisper-medium',
+    'openai/whisper-small',
+    'openai/whisper-base',
+    'openai/whisper-tiny',
+    'openai/whisper-medium.en',
+    'openai/whisper-small.en',
+    'openai/whisper-base.en',
+    'openai/whisper-tiny.en',
+]
+
+languages = ['en', 'auto', 'fr']
+
 class LoadWhisperModelNode:
     def __init__(self):
         pass
@@ -9,8 +25,8 @@ class LoadWhisperModelNode:
     def INPUT_TYPES(cls):
         return {
             'required': {
-                'model_id': (['openai/whisper-large-v3'],),
-                'language': (['en', 'auto'],),
+                'model_id': (model_ids,),
+                'language': (languages,),
             },
         }
 
@@ -33,7 +49,11 @@ class LoadWhisperModelNode:
 
         generate_kwargs = {}
         if language != 'auto':
-            generate_kwargs['language'] = language
+            if model_id.endswith('.en'):
+                if language != 'en':
+                    raise ValueError(f'Model {model_id} only supports English language')
+            else:
+                generate_kwargs['language'] = language
 
         pipe = pipeline(
             'automatic-speech-recognition',
