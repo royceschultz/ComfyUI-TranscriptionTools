@@ -2,6 +2,7 @@ from .components.audio_sink_node import AudioSinkNode
 from .components.load_whisper_model import LoadWhisperModelNode
 from .components.whisper_transcription import WhisperTranscriptionNode
 from .components.load_video_audio import LoadVideoAudioNode
+from .components.load_audio import LoadAudioNode
 
 from .components.convert.vhs_audio_to_audio import VHSAudioToWavBytesNode
 
@@ -16,6 +17,7 @@ NODE_CLASS_MAPPINGS = {
     "TT-WhisperTranscription": WhisperTranscriptionNode,
     "TT-ConvertVhsAudioToAudio": VHSAudioToWavBytesNode,
     "TT-LoadVideoAudio": LoadVideoAudioNode,
+    "TT-LoadAudio": LoadAudioNode,
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
@@ -25,6 +27,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TT-WhisperTranscription": "Whisper Transcribe",
     "TT-ConvertVhsAudioToAudio": "Convert VHS Audio to WAV bytes",
     "TT-LoadVideoAudio": "Load Audio from Video",
+    "TT-LoadAudio": "Load Audio",
 }
 
 WEB_DIRECTORY = "./web"
