@@ -2,4 +2,4 @@
 
 [Nodes](nodes.md)
 
-[Models](models.md)
+[Supported Transcription Models](models.md)

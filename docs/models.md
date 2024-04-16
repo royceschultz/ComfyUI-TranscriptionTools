@@ -1,4 +1,4 @@
-# Models
+# Transcription Models
 
 Models are automatically downloaded at runtime. The models are stored in the `~/.cache/huggingface/hub` directory. The models are downloaded from the [Hugging Face Model Hub](https://huggingface.co/models).
 
