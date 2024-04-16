@@ -3,27 +3,8 @@ import subprocess
 
 import folder_paths
 
-from .util import get_ffmpeg_path
+from .util import get_wav_bytes_from_file, video_extensions
 
-
-video_extensions = ['webm', 'mp4', 'mkv']
-
-def get_audio(video, start_time=0, duration=0):
-    ffmpeg_path = get_ffmpeg_path()
-    args = [ffmpeg_path, "-v", "error", "-i", video]
-    if start_time > 0:
-        args += ["-ss", str(start_time)]
-    if duration > 0:
-        args += ["-t", str(duration)]
-    try:
-        res = subprocess.run(
-            args + ["-f", "wav", "-"],
-            stdout=subprocess.PIPE,
-            check=True
-        ).stdout
-    except subprocess.CalledProcessError as e:
-        raise Exception(f"Failed to extract audio from: {video}")
-    return res
 
 class LoadVideoAudioNode:
     @classmethod
@@ -48,7 +29,7 @@ class LoadVideoAudioNode:
     def load_video_audio(self, video):
         input_directory = folder_paths.get_input_directory()
         filepath = os.path.join(input_directory, video)
-        audio = get_audio(filepath)
+        audio = get_wav_bytes_from_file(filepath)
         return (audio, )
 
     # @classmethod

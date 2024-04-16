@@ -1,31 +1,12 @@
 import os
-import subprocess
 import re
 
 import folder_paths
 
-from .util import get_ffmpeg_path
+from .util import get_wav_bytes_from_file, audio_extensions, video_extensions
 
 
-accepted_extensions = ["mp3", "wav", "webm", "mp4", "mkv"]
-
-def get_audio(audio, start_time=0, duration=0):
-    # ffmpeg -v error -i audio.(mp3|wav) -f wav -
-    ffmpeg_path = get_ffmpeg_path()
-    args = [ffmpeg_path, "-v", "error", "-i", audio]
-    if start_time > 0:
-        args += ["-ss", str(start_time)]
-    if duration > 0:
-        args += ["-t", str(duration)]
-    try:
-        res = subprocess.run(
-            args + ["-f", "wav", "-"],
-            stdout=subprocess.PIPE,
-            check=True
-        ).stdout
-    except subprocess.CalledProcessError as e:
-        raise Exception(f"Failed to extract audio from: {audio}")
-    return res
+accepted_extensions = audio_extensions + video_extensions
 
 class LoadBatchNode:
     @classmethod
@@ -73,7 +54,7 @@ class LoadBatchNode:
             # Need to initialize get_audio this way because of the way references are handled.
             # Something to do with closures and late binding.
             # Else get_audio will always refer to the last item in the loop.
-            item["get_audio"] = lambda x=filepath: get_audio(x)
+            item["get_audio"] = lambda x=filepath: get_wav_bytes_from_file(x)
 
             audio_batch.append(item)
         return (audio_batch, len(audio_batch), list(files))
