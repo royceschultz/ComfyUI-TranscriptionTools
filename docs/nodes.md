@@ -10,6 +10,10 @@ Load an audio file from the `input/` folder.
 
 Load the audio component of a video file from the `input/` folder.
 
+### Load Audio from Batch
+
+Load a batch of audio files for processing. Files can be selected from the input folder or any arbitrary path on the system. Supports simultaneous audio and video input as well as regex filtering for file selection.
+
 ## Model Nodes
 
 ### Load Whisper Model
@@ -21,7 +25,12 @@ Note: Automatic language detection can occaisionally produce errors. If you're h
 ## Processing Nodes
 
 ### Whisper Transcribe
+
 Transcribe the audio using the whisper model. Includes options for saving files to the `output/transcription` folder.
+
+### Whisper Transcribe Batch
+
+Transcribe a batch of audio files using the whisper model. Includes options for saving files to the `output/transcription` folder.
 
 ## Output Nodes
 
