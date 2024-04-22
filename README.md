@@ -4,11 +4,16 @@ This package provides custom nodes for ComfyUI to perform transcription tasks on
 
 <img src="assets/workflow_example.jpg" alt="isolated" width="800"/>
 
-Note: To text (Debug) is part of [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager), but you probably have that installed already.
+Note: To text (Debug) is part of [Derfuu_ModdedNodes](https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes).
 
 ## Documentation
 
-[See Docs](docs/README.md)
+[Example Workflows](docs/workflows.md)
+
+[Node Info](docs/nodes.md)
+
+[Supported Transcription Models](docs/models.md)
+
 
 ## Special Thanks
 
