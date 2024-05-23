@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-transcriptiontools"
+description = "Transcribe audio and video files in ComfyUI."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["accelerate"]
+
+[project.urls]
+Repository = "https://github.com/royceschultz/ComfyUI-TranscriptionTools"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-TranscriptionTools"
+Icon = ""
