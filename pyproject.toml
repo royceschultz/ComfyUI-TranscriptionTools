@@ -2,7 +2,7 @@
 name = "comfyui-transcriptiontools"
 description = "Transcribe audio and video files in ComfyUI."
 version = "1.0.0"
-license = "LICENSE"
+license = "MIT License"
 dependencies = ["accelerate"]
 
 [project.urls]
