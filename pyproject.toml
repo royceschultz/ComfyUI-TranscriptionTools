@@ -10,6 +10,6 @@ Repository = "https://github.com/royceschultz/ComfyUI-TranscriptionTools"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "royceschultz"
 DisplayName = "ComfyUI-TranscriptionTools"
 Icon = ""
